@@ -1,0 +1,15 @@
+---
+version: '3.4'
+services:
+  ubuntu-with-sshd:
+    image: "ubuntu-ssh:latest"
+    build:
+      context: "."
+      target: "Dockerfile"
+    networks:
+      - ubuntu-sshd-network
+networks:
+  ubuntu-sshd-network:
+    ipam:
+      config:
+        - subnet: 10.21.21.0/24
