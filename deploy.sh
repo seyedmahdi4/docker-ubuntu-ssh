@@ -40,7 +40,7 @@ docker build . -t ubuntu-ssh 1> /dev/null
 
 docker-compose up --scale ubuntu-with-sshd=$N_INSTANSE -d &> /dev/null
 echo "your instanses ip:(see again with 'cat hosts.ini')"
-docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' `docker network inspect   -f '{{ range $key, $value := .Containers }}{{ printf "%s\n" $key}}{{ end }}' ssh_docker_ubuntu-sshd-network` 1> hosts.ini
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' `docker network inspect   -f '{{ range $key, $value := .Containers }}{{ printf "%s\n" $key}}{{ end }}' docker-ubuntu-ssh_ubuntu-sshd-network` 1> hosts.ini
 echo -ne "${YELLOW}" ; cat hosts.ini ;echo -ne "${NC}"
 
 echo -e "${GREEN}username: ubuntu${NC}"
