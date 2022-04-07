@@ -46,6 +46,6 @@ echo -ne "${YELLOW}" ; cat hosts.ini ;echo -ne "${NC}"
 echo -e "${GREEN}username: ubuntu${NC}"
 echo -e "${GREEN}password: ubuntu${NC}"
 echo note: run root command with sudo and it\'s doesn\'t need password
-echo -e "for destroye stack : ${RED}docker-compose down${NC}"
+echo -e "for destroye stack : ${RED}./unstack.sh${NC}"
 echo -e  '#!/bin/bash\ndocker-compose down\nfor i in `cat hosts.ini` ; do ssh-keygen -f "$HOME/.ssh/known_hosts" -R $i &> /dev/null  ; done\nrm hosts.ini &> /dev/null\nrm unstack.sh' > unstack.sh
 chmod +x unstack.sh 
