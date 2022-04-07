@@ -38,6 +38,8 @@ docker-compose up --scale ubuntu-with-sshd=$N_INSTANSE -d &> /dev/null
 
 echo "your instanses ip:(see again with 'cat hosts.ini')"
 
+for i in `cat hosts.ini` ; do ssh-keygen -f "$HOME/.ssh/known_hosts" -R $i ; done
+
 docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' `docker network inspect   -f '{{ range $key, $value := .Containers }}{{ printf "%s\n" $key}}{{ end }}' docker-ubuntu-ssh_ubuntu-sshd-network` 1> hosts.ini
 
 echo -ne "${YELLOW}" ; cat hosts.ini ;echo -ne "${NC}"
@@ -45,3 +47,5 @@ echo -e "${GREEN}username: ubuntu${NC}"
 echo -e "${GREEN}password: ubuntu${NC}"
 echo note: run root command with sudo and it\'s doesn\'t need password
 echo -e "for destroye stack : ${RED}docker-compose down${NC}"
+echo -e  '#!/bin/bash\ndocker-compose down\nfor i in `cat hosts.ini` ; do ssh-keygen -f "$HOME/.ssh/known_hosts" -R $i &> /dev/null  ; done\nrm hosts.ini &> /dev/null\nrm unstack.sh' > unstack.sh
+chmod +x unstack.sh 
