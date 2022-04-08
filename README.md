@@ -1,7 +1,7 @@
-# docker-ubuntu-ssh
-up and running ubuntu container with sshd and ip
+# ubuntu docker container with ssh
 
-this is very useful for test and learn configuration as code like ansible
+
+###### this is very useful for test and learn configuration as code like ansible
 
 
 
@@ -25,7 +25,7 @@ chmod +x deploy.sh
 ./unstack.sh
 ```
 
-![alt text](https://github.com/seyedmahdi4/docker-ubuntu-ssh/blob/main/image.png)
+![alt text](https://github.com/seyedmahdi4/docker-ubuntu-ssh/blob/main/image.jpg)
 
 #### example to connect
 ```sh
