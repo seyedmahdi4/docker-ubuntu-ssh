@@ -17,7 +17,7 @@
 
 its work on linux
 
-![for window or mac](https://github.com/seyedmahdi4/docker-ubuntu-ssh/edit/main/README.md#use-docker-image-in-mac-and-windows "for window or mac")
+![for window or mac](https://github.com/seyedmahdi4/docker-ubuntu-ssh#use-docker-image-in-mac-and-windows "for window or mac")
 
 
 
