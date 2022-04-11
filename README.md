@@ -50,6 +50,7 @@ echo 2 | ./deploy.sh
 commnet line 22 in Dockerfile
 
 where ```COPY --chown=ubuntu:root "./id_rsa.pub" /home/ubuntu/.ssh/authorized_keys```
+
 to ```#COPY --chown=ubuntu:root "./id_rsa.pub" /home/ubuntu/.ssh/authorized_keys```
 
 build it:
