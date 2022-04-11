@@ -14,6 +14,14 @@
 - you can run command with sudo and it's doesn't need password
 
 ## Installation
+
+its work on linux
+
+![for window or mac](https://github.com/seyedmahdi4/docker-ubuntu-ssh/edit/main/README.md#use-docker-image-in-mac-and-windows "for window or mac")
+
+
+
+
 ```sh
 git clone https://github.com/seyedmahdi4/docker-ubuntu-ssh && cd docker-ubuntu-ssh
 chmod +x deploy.sh
@@ -36,3 +44,24 @@ ssh ubuntu@10.21.21.2
 ```sh
 echo 2 | ./deploy.sh
 ```
+
+### use docker image in mac and windows
+
+commnet line 22 in Dockerfile
+
+where ```COPY --chown=ubuntu:root "./id_rsa.pub" /home/ubuntu/.ssh/authorized_keys```
+to ```#COPY --chown=ubuntu:root "./id_rsa.pub" /home/ubuntu/.ssh/authorized_keys```
+
+build it:
+
+```docker build -t ssh-ubuntu .```
+
+run it with port forward
+
+```docker run -d --name ubuntu-ssh -p 2222:22 ssh-ubuntu```
+
+and use it :)   
+
+```ssh ubuntu@127.0.0.1 -p 2222```
+
+and password is: ubuntu
