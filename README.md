@@ -15,9 +15,9 @@
 
 ## Installation
 
-its work on linux
+##### script just work on linux
 
-[for window or mac](https://github.com/seyedmahdi4/docker-ubuntu-ssh#use-docker-image-in-mac-and-windows "for window or mac")
+[run container in window or mac](https://github.com/seyedmahdi4/docker-ubuntu-ssh#use-docker-image-in-mac-and-windows "for window or mac")
 
 
 
