@@ -10,10 +10,10 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
-read -p "how many instanse you need?(default 1): " N_INSTANSE
-if [ -z "$N_INSTANSE" ]
+read -p "how many instance you need?(default 1): " N_INSTANCE
+if [ -z "$N_INSTANCE" ]
   then  
-    N_INSTANSE=1
+    N_INSTANCE=1
 fi
 
 echo check requirements
@@ -33,9 +33,9 @@ docker-compose down &> /dev/null
 echo lets build Dockerfile
 
 docker build . -t ubuntu-ssh 1> /dev/null
-docker-compose up --scale ubuntu-with-sshd=$N_INSTANSE -d &> /dev/null
+docker-compose up --scale ubuntu-with-sshd=$N_INSTANCE -d &> /dev/null
 
-echo "your instanses ip:(see again with 'cat hosts.ini')"
+echo "your instances ip:(see again with 'cat hosts.ini')"
 
 docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' `docker network inspect   -f '{{ range $key, $value := .Containers }}{{ printf "%s\n" $key}}{{ end }}' docker-ubuntu-ssh_ubuntu-sshd-network` 1> hosts.ini
 for i in `cat hosts.ini` ; do ssh-keygen -f "$HOME/.ssh/known_hosts" -R &> /dev/null ; done
